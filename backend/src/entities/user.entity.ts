@@ -3,17 +3,17 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;  // Primary key, auto-generated
+  id: number;
 
   @Column()
-  firstName: string;  // Corresponds to firstName in the DTO
+  firstName: string;
 
   @Column()
-  secondName: string;  // Corresponds to secondName in the DTO
+  secondName: string;
 
   @Column()
-  age: number;  // Corresponds to age in the DTO
+  age: number;
 
   @Column({ unique: true })
-  email: string;  // Corresponds to email in the DTO (unique to prevent duplicates)
+  email: string;
 }
