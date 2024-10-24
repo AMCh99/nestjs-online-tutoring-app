@@ -17,8 +17,12 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  public findOne(id: number): Promise<User | null> {
+  public findOneById(id: number): Promise<User | null> {
     return this.usersRepository.findOneBy({ id });
+  }
+
+  public findOneByUserName(userName: string): Promise<User | null> {
+    return this.usersRepository.findOneBy({ userName });
   }
 
   public async remove(id: number): Promise<void> {
