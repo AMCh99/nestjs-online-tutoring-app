@@ -10,7 +10,7 @@ export class CreateUserDto {
   @ApiProperty()
   secondName: string;
   @ApiProperty()
-  age: number;
+  birthDate: Date;
 
   @IsEmail()
   @ApiProperty()
