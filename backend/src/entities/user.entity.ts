@@ -6,16 +6,16 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   userName: string;
 
   @Column()
   firstName: string;
 
   @Column()
-  secondName: string;
+  lastName: string;
 
-  @Column()
+  @Column({ type: 'date' })
   birthDate: Date;
 
   @Column({ unique: true })
@@ -24,7 +24,16 @@ export class User {
   @Column()
   password: string;
 
-  @OneToOne(() => Address)
+  @Column({ nullable: true })
+  profilePicture: string;
+
+  @Column({ default: 'student', type: 'enum', enum: ['student', 'tutor', 'admin'] })
+  role: 'student' | 'tutor' | 'admin';
+
+  @Column({ nullable: true })
+  bio: string;
+
+  @OneToOne(() => Address, { nullable: true, cascade: true })
   @JoinColumn()
   address: Address;
 }

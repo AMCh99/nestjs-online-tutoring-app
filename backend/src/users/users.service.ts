@@ -45,6 +45,12 @@ export class UsersService {
     });
   }
 
+  public async findUsersByRole(role: 'student' | 'tutor' | 'admin'): Promise<User[]> {
+    return this.usersRepository.find({
+      where: { role },
+    });
+  }
+
   async updateAddress(userId: number, updateAddressDto: CreateAddressDto): Promise<Address> {
     const user = await this.findUserWithAddress(userId);
     if (!user) throw new Error('User not found');
